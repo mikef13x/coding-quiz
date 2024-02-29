@@ -1,32 +1,25 @@
-
-*{
+* {
     font-family: 'poppins', serif;
     list-style: none;
-    
 }
 
-
-
-:root{
+:root {
     --mint: #53be92;
     --dark: #242422;
     --white: #ffffff;
-
-
 }
 
-body{ 
-background-color: var(--mint);
-display: flexbox;
-
+body {
+    background-color: var(--mint);
 }
 
 #top {
     text-align: center;
 }
-#answers > li > button {
-    background-color: rgb(182, 90, 182);
-    color: var(--white)
+
+.answer {
+    width: 300px;
+    
 }
 
 .start {
@@ -37,16 +30,22 @@ display: flexbox;
 #scoreboard {
     display: none;
     text-align: center;
+    color: var(--white);
 }
-.scoreboard {
+
+.scores {
     margin-right: 40px;
+    color: var(--dark);
 }
+
+
 
 .test {
     display: none;
     text-align: center;
     margin: 100px;
-    padding-right: 100px;
+
+    justify-content: center;
 }
 
 .question {
@@ -55,4 +54,22 @@ display: flexbox;
 
 .answer {
     margin: 20px;
+}
+
+#timer {
+    color: var(--white);
+}
+/* how to make wider, tried 50vw, kind of looks bugged */
+/* how to elimate the space the ul makes padding 40 on left auto */
+@media (width <= 596px) {
+     .media {
+        display:flex;
+
+    }
+  .question {
+    justify-content: center;
+    display: flex;
+  
+  }
+  
 }

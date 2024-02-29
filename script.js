@@ -3,18 +3,17 @@ var startBtn = document.querySelector(".start")
 var question = document.querySelector(".question")
 var answers = document.querySelector(".answer")
 var scoreboard = document.querySelector("#scoreboard")
+var scores = document.querySelector(".scores")
 var test = document.querySelector(".test")
 var timer = document.querySelector("#timer")
-console.log (answers)
+
 
 
 function startGame() {
+    startTimer();
     test.style.display = "block";
     topText.style.display = "none";
-    startTimer();
-    // answers.addEventListener('click', function() {
-    //     showScore();
-    // })
+    
 }
 
 function showScore() {
@@ -25,12 +24,12 @@ function showScore() {
 
 
 function startTimer() {
-    var time = 5;
-    var timeInterval = setInterval(function() {
+    var time = 50;
+    var timeInterval = setInterval(function () {
         if (time > 1) {
             timer.textContent = time + " Seconds Remaining";
             time--;
-        
+
         } else if (time === 1) {
             timer.textContent = time + " Second Remaining";
             time--;
@@ -40,7 +39,7 @@ function startTimer() {
             showScore();
         }
         console.log(time)
-        
+
     }, 1000)
 }
 
