@@ -38,7 +38,9 @@ body {
     color: var(--dark);
 }
 
-
+button {
+    min-width: 125px;
+}
 
 .test {
     display: none;
