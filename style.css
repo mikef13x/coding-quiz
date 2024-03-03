@@ -31,8 +31,15 @@ body {
     display: none;
     text-align: center;
     color: var(--white);
+    margin-top:100px;
+    font-size:24px;
+    
 }
 
+#scoreTitle {
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+}
 .scores {
     margin-right: 40px;
     color: var(--dark);
@@ -50,16 +57,30 @@ button {
     justify-content: center;
 }
 
+
+
 .question {
     font-size: 30px;
 }
-
+.centerThis {
+    padding:0;
+}
 .answer {
     margin: 20px;
 }
 
 #timer {
     color: var(--white);
+}
+#submitBtn {
+    background-color: black;
+    color: white;
+}
+.input {
+    display: none;
+    text-align: center;
+    margin-top:100px;
+    font-size: 30px;
 }
 /* how to make wider, tried 50vw, kind of looks bugged */
 /* how to elimate the space the ul makes padding 40 on left auto */

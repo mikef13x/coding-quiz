@@ -24,20 +24,25 @@
     </div>
         <h2 id = "timer"></h2>
     <div class="test">
-        <p class="question">Question: </p>
-            <ul>
-                <li class = "media"><button class = "answer">Javascript</button></li>
-                <li class = "media"><button class = "answer">Python</button></li>
-                <li class = "media"><button class = "answer">3</button></li>
-                <li class = "media"><button class = "answer">This is Answer 4</button></li>
+        <p class="question">Question</p>
+            <ul class="centerThis" id = "answerBtns">
+                <li class = "media"><button class = "answer" id = "answer1">Javascript</button></li>
+                <li class = "media"><button class = "answer" id = "answer2">Python</button></li>
+                <li class = "media"><button class = "answer" id = "answer3">3</button></li>
+                <li class = "media"><button class = "answer" id = "answer4">This is Answer 4</button></li>
             </ul>
     </div>
+    <div class = input>
+        <p>Enter initials below:</p>
+            <input type="text" id = "submitInit">
+            <button type ="submit" id = "submitBtn">Submit</button>
+    </div>
     <div id="scoreboard">
-        <h1>Scoreboard</h1>
+        <h1 id = "scoreTitle">Scoreboard</h1>
         <ul class = "scores">
-            <li>score goes here </li>
-            <li>score goes here </li>
-            <li>score goes here </li>
+            <li id = submitHere></li>
+            <li id = submitHere></li>
+            
         </ul>
     </div>
     <script src="script.js"></script>
