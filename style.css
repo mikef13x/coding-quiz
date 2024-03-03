@@ -57,7 +57,9 @@ button {
     justify-content: center;
 }
 
-
+.time {
+    color: white
+}
 
 .question {
     font-size: 30px;

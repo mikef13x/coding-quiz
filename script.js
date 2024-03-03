@@ -15,6 +15,7 @@ var answerkey = document.querySelector(".answer")
 var submitBtn = document.querySelector("#submitBtn")
 var submitInit = document.querySelector("#submitInit")
 var submitHere = document.querySelector("#submitHere")
+var resetBtn = document.querySelector("#resetBtn")
 
 
 const questionArray = [
@@ -148,11 +149,33 @@ function initialpage() {
 //   }
 
 
-function renderLastRegistered() {
+function renderScores() {
     var submitInit = localStorage.getItem("Initials");
     submitHere.textContent = submitInit;
 
 }
+// scores.innerHTML = "";
+// scores.textContent = scores.length;
+// for (var i = 0; i < scores.length; i++) {
+//     var scores = scores[i];
+
+//     var li = document.createElement("li");
+//     li.textContent = scores;
+//     li.setAttribute("data-index", i);
+
+   
+   
+//     scores.appendChild(li);
+//   }
+
+resetBtn.addEventListener("click", function(event){
+
+    localStorage.clear();
+    renderScores();
+    
+
+})
+
 
 
 submitBtn.addEventListener("click", function(event){
@@ -162,7 +185,8 @@ submitBtn.addEventListener("click", function(event){
     if (initialSubmit !== "") {
         // displayMessage("Initals successfully registered");
         localStorage.setItem("Initials", initialSubmit + ": " + time);
-        renderLastRegistered();
+       
+        renderScores();
         showScore();
     }
 })
