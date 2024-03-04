@@ -16,33 +16,33 @@ var submitBtn = document.querySelector("#submitBtn")
 var submitInit = document.querySelector("#submitInit")
 var submitHere = document.querySelector("#submitHere")
 var resetBtn = document.querySelector("#resetBtn")
-
+var restartGameBtn = document.querySelector("#restartGameBtn")
 
 const questionArray = [
     {
-        title: "What language rhymes with LavaSript",
-        answer: ["JavaScript", "Python", "C++", "C#"],
+        title: "What does HTML stand for",
+        answer: ["Hypertext Markup Language", "Hypertext Coding Language", "Hydrotext Marked Language", "Hyper Language Text"],
+        correct: "Hypertext Markup Language"
+    },
+    {
+        title: "What coding language allows functionality",
+        answer: ["CSS", "HTML", "Javascript", "All of the above"],
         correct: "JavaScript"
     },
     {
-        title: "What language starts with P",
-        answer: ["C++", "Java", "Javascript", "Python"],
-        correct: "Python"
+        title: "Which coding language is meant to change the style of the page",
+        answer: ["JavaScript", "HTML", "Python", "CSS"],
+        correct: "CSS"
     },
     {
-        title: "How many letters are in HTML",
-        answer: ["1", "2", "3", "4"],
-        correct: "4"
+        title: "What is another form of JavaScript",
+        answer: ["HTML", "CSS", "jQuery", "None of the above"],
+        correct: "jQuery"
     },
     {
-        title: "What is CSS",
-        answer: ["Wrong", "Wrong", "Correct3", "Wrong"],
-        correct: "Correct3"
-    },
-    {
-        title: "What is JavaScript",
-        answer: ["Wrong", "Wrong", "Correct3", "Wrong"],
-        correct: "Correct3"
+        title: "What is the syntax to comment out code in CSS",
+        answer: ["/*  */", "<!--  -->", "//", "All of the above"],
+        correct: "//"
     },
 ]
 var index = 0;
@@ -113,6 +113,7 @@ function highlightAnswer(buttonText, currentSelector) {
     time = time-5;
  }
 }
+
 function nextQuestion(event) {
     if (event.target.matches("button")) {
         var buttonText = event.target.textContent;
@@ -143,11 +144,7 @@ function initialpage() {
     stopTimer()
 }
 
-// function displayMessage(type, message) {
-//     initials.textContent = message;
-//     initials.setAttribute("class", type);
-//   }
-
+// submitHere used in this function, will it still work if Ol class is used
 
 function renderScores() {
     var submitInit = localStorage.getItem("Initials");
@@ -168,27 +165,32 @@ function renderScores() {
 //     scores.appendChild(li);
 //   }
 
-resetBtn.addEventListener("click", function(event){
+resetBtn.addEventListener("click", function(){
 
     localStorage.clear();
     renderScores();
     
 
-})
+}) 
 
 
 
-submitBtn.addEventListener("click", function(event){
+submitBtn.addEventListener("click", function(){
     
     var initialSubmit = document.querySelector("#submitInit").value;
 
     if (initialSubmit !== "") {
-        // displayMessage("Initals successfully registered");
         localStorage.setItem("Initials", initialSubmit + ": " + time);
        
         renderScores();
         showScore();
     }
+})
+
+
+restartGameBtn.addEventListener("click", function()
+{
+    window.location.reload();
 })
 
 
