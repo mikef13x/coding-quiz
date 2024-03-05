@@ -11,7 +11,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-
 </head>
 
 <body>
@@ -22,30 +21,27 @@
         <p>Welcome to my coding quiz, good luck!</p>
         <button class="start">Start Quiz</button>
     </div>
-        <h2 id = "timer"></h2>
+    <h2 id="timer"></h2>
     <div class="test">
         <p class="question">Question</p>
-            <ul class="centerThis" id = "answerBtns">
-                <li class = "media"><button class = "answer" id = "answer1">Javascript</button></li>
-                <li class = "media"><button class = "answer" id = "answer2">Python</button></li>
-                <li class = "media"><button class = "answer" id = "answer3">3</button></li>
-                <li class = "media"><button class = "answer" id = "answer4">This is Answer 4</button></li>
-            </ul>
+        <ul class="centerThis" id="answerBtns">
+            <li class="media"><button class="answer" id="answer1">Javascript</button></li>
+            <li class="media"><button class="answer" id="answer2">Python</button></li>
+            <li class="media"><button class="answer" id="answer3">3</button></li>
+            <li class="media"><button class="answer" id="answer4">This is Answer 4</button></li>
+        </ul>
     </div>
-    <div class = input>
+    <div class=input>
         <p>Enter initials below:</p>
-            <input type="text" id = "submitInit">
-            <button type ="submit" id = "submitBtn">Submit</button>
+        <input type="text" id="submitInit">
+        <button type="submit" id="submitBtn">Submit</button>
     </div>
     <div id="scoreboard">
-        <h1 id = "scoreTitle">Scoreboard</h1>
-        <!-- do i make ol id "submitHere instead?" -->
-        <ol class = "scores">
-            <li id = submitHere></li>
-            <button type = "submit" id = "resetBtn">Clear Scores</button>
-            <button type = "submit" id = "restartGameBtn">Restart?</button>
-            
+        <h1 id="scoreTitle">Scoreboard</h1>
+        <ol class="scores" id="submitHere">
         </ol>
+        <button type="submit" id="resetBtn">Clear Scores</button>
+        <button type="submit" id="restartGameBtn">Restart?</button>
     </div>
     <script src="script.js"></script>
 </body>

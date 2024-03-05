@@ -26,7 +26,7 @@ const questionArray = [
     },
     {
         title: "What coding language allows functionality",
-        answer: ["CSS", "HTML", "Javascript", "All of the above"],
+        answer: ["CSS", "HTML", "JavaScript", "All of the above"],
         correct: "JavaScript"
     },
     {
@@ -57,7 +57,7 @@ function displayTest() {
     answer2.style = "color: black; background: white";
     answer3.style = "color: black; background: white";
     answer4.style = "color: black; background: white";
-    
+
 }
 
 
@@ -79,12 +79,12 @@ function showScore() {
 
 }
 
-var time = "";
+var time = 100;
 var timeInterval = ""
 function startTimer() {
     time = 100;
     timer.textContent = time + " Seconds Remaining";
-     timeInterval = setInterval(function () {
+    timeInterval = setInterval(function () {
         time--;
         if (time > 1) {
 
@@ -103,15 +103,15 @@ function startTimer() {
     }, 1000)
 }
 function highlightAnswer(buttonText, currentSelector) {
- var correctAnswer = questionArray[index].correct;
- if (correctAnswer === buttonText) {
-    currentSelector.style = "background-color:green; color: white";
-    
- } else {
-    currentSelector.style = "background-color:red; color: white";
-    currentSelector.style.color = "white";
-    time = time-5;
- }
+    var correctAnswer = questionArray[index].correct;
+    if (correctAnswer === buttonText) {
+        currentSelector.style = "background-color:green; color: white";
+
+    } else {
+        currentSelector.style = "background-color:red; color: white";
+        currentSelector.style.color = "white";
+        time = time - 5;
+    }
 }
 
 function nextQuestion(event) {
@@ -121,21 +121,17 @@ function nextQuestion(event) {
         highlightAnswer(buttonText, currentSelector);
         index++
         if (index < questionArray.length) {
-            setTimeout(displayTest,500);
-        } else  {
-           setTimeout(initialpage,500);
+            setTimeout(displayTest, 500);
+        } else {
+            setTimeout(initialpage, 500);
         }
     }
-    
-
-
-
 }
 
- function stopTimer() {
+function stopTimer() {
     clearInterval(timeInterval)
     timer.style.display = "none";
- }
+}
 
 function initialpage() {
     initials.style.display = "block";
@@ -144,59 +140,60 @@ function initialpage() {
     stopTimer()
 }
 
-// submitHere used in this function, will it still work if Ol class is used
+
 
 function renderScores() {
-    var submitInit = localStorage.getItem("Initials");
-    submitHere.textContent = submitInit;
+    var submitInit = JSON.parse(localStorage.getItem("highScoreArray"));
+    submitInit.sort(function(a, b) {
+        return parseInt(b.split(":")[1]) - parseInt(a.split(":")[1]);
+    });
+    submitHere.textContent = '';
+
+
+    for (var i = 0; i < submitInit.length; i++) {
+        var li = document.createElement("li");
+        li.textContent = submitInit[i];
+        li.setAttribute("data-index", i);
+
+
+
+        submitHere.appendChild(li);
+    }
 
 }
-// scores.innerHTML = "";
-// scores.textContent = scores.length;
-// for (var i = 0; i < scores.length; i++) {
-//     var scores = scores[i];
 
-//     var li = document.createElement("li");
-//     li.textContent = scores;
-//     li.setAttribute("data-index", i);
-
-   
-   
-//     scores.appendChild(li);
-//   }
-
-resetBtn.addEventListener("click", function(){
-
-    localStorage.clear();
-    renderScores();
-    
-
-}) 
+var highScoreArray = JSON.parse(localStorage.getItem("highScoreArray")) || [];
 
 
-
-submitBtn.addEventListener("click", function(){
-    
+function postScore () {
     var initialSubmit = document.querySelector("#submitInit").value;
 
     if (initialSubmit !== "") {
-        localStorage.setItem("Initials", initialSubmit + ": " + time);
-       
+        highScoreArray.push(initialSubmit + ": " + time);
+        console.log(highScoreArray);
+        localStorage.setItem("highScoreArray", JSON.stringify(highScoreArray));
         renderScores();
         showScore();
     }
-})
+};
 
-
-restartGameBtn.addEventListener("click", function()
-{
+function clearScores() {
+    localStorage.clear();
+    renderScores();
+}
+function reloadPage() {
     window.location.reload();
-})
+}
 
+
+
+restartGameBtn.addEventListener("click", reloadPage)
+
+resetBtn.addEventListener("click", clearScores)
 
 startBtn.addEventListener('click', startGame)
 
 answerBtns.addEventListener('click', nextQuestion)
 
 
-
+submitBtn.addEventListener("click", postScore)
