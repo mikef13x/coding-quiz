@@ -98,7 +98,7 @@ function startTimer() {
             clearInterval(timeInterval)
             initialpage();
         }
-        console.log(time)
+       
 
     }, 1000)
 }
