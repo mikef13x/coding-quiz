@@ -79,10 +79,10 @@ function showScore() {
 
 }
 
-var time = 100;
+var time = 60;
 var timeInterval = ""
 function startTimer() {
-    time = 100;
+    time = 60;
     timer.textContent = time + " Seconds Remaining";
     timeInterval = setInterval(function () {
         time--;
