@@ -105,7 +105,7 @@ function startTimer() {
 function highlightAnswer(buttonText, currentSelector) {
     var correctAnswer = questionArray[index].correct;
     if (correctAnswer === buttonText) {
-        currentSelector.style = "background-color:green; color: white";
+        currentSelector.style = "background-color:green;  color: white";
 
     } else {
         currentSelector.style = "background-color:red; color: white";
@@ -163,6 +163,7 @@ function renderScores() {
 
 }
 
+
 var highScoreArray = JSON.parse(localStorage.getItem("highScoreArray")) || [];
 
 
@@ -180,8 +181,10 @@ function postScore () {
 
 function clearScores() {
   
+    submitHere.textContent = '';
+        
     localStorage.clear();
-    renderScores();
+    
 }
 function reloadPage() {
     window.location.reload();
