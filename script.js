@@ -144,11 +144,12 @@ function initialpage() {
 
 function renderScores() {
     var submitInit = JSON.parse(localStorage.getItem("highScoreArray"));
+    submitHere.textContent = '';
+   
     submitInit.sort(function(a, b) {
         return parseInt(b.split(":")[1]) - parseInt(a.split(":")[1]);
     });
-    submitHere.textContent = '';
-
+   
 
     for (var i = 0; i < submitInit.length; i++) {
         var li = document.createElement("li");
@@ -178,6 +179,7 @@ function postScore () {
 };
 
 function clearScores() {
+  
     localStorage.clear();
     renderScores();
 }
